@@ -7,5 +7,3 @@ function generatepress_child_enqueue_styles()
 
 require_once 'elementor/widgets/widgets.php';
 
-require_once('custom-widgets/my-widgets.php');
-

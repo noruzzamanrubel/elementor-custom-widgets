@@ -17,14 +17,12 @@ class Test_Elementor_Widgets
     protected function __construct()
     {
         require_once 'create-widget.php';
-        require_once 'title-widget.php';
         add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
     }
 
     public function register_widgets()
     {
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Elementor\My_Widget_2());
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Elementor\Elementor_Test_Widget());
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Elementor\Test_Title_widget());
     }
 
 }
