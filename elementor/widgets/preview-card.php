@@ -678,7 +678,8 @@ class preview_Card_widget extends Widget_Base
         $this->end_controls_section();
 
 
-        /**
+
+         /**
          * Buy Button Style Settings
          */
         $this->start_controls_section(
@@ -689,78 +690,91 @@ class preview_Card_widget extends Widget_Base
             ]
         );
 
-        // Background Color
-        $this->add_control(
-            'but_button_normal_bg_color',
-            [
-                'label' => __( 'Background Color', 'elementor' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#562dd4',
-                'selectors' => [
-                    '{{WRAPPER}} .image-card .readmore a.button-readmore' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
+            // Button Tabs
+            $this->start_controls_tabs(
+                'but_button_style_tabs'
+            );
+                // Normal State
+                $this->start_controls_tab(
+                    'buy_button_normal_state',
+                    [
+                        'label' => __( 'Normal', 'elementor' ),
+                    ]
+                );
+                    // Background Color
+                    $this->add_control(
+                        'but_button_normal_bg_color',
+                        [
+                            'label' => __( 'Background Color', 'elementor' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '#562dd4',
+                            'selectors' => [
+                                '{{WRAPPER}} .image-card .readmore a.button-readmore' => 'background-color: {{VALUE}}',
+                            ],
+                        ]
+                    );
+                    // Text Color
+                    $this->add_control(
+                        'but_button_normal_text_color',
+                        [
+                            'label' => __( 'Text Color', 'elementor' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '#fff',
+                            'selectors' => [
+                                '{{WRAPPER}} .image-card .readmore a.button-readmore' => 'color: {{VALUE}}',
+                            ],
+                        ]
+                    );
+                $this->end_controls_tab();
 
-        // Text Color
-        $this->add_control(
-            'but_button_normal_text_color',
-            [
-                'label' => __( 'Text Color', 'elementor' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .image-card .readmore a.button-readmore' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
+                // Hover State
+                $this->start_controls_tab(
+                    'buy_button_hover_state',
+                    [
+                        'label' => __( 'Hover', 'elementor' ),
+                    ]
+                );
+                    // Background Color
+                    $this->add_control(
+                        'but_button_hover_bg_color',
+                        [
+                            'label' => __( 'Background Color', 'elementor' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '#707070',
+                            'selectors' => [
+                                '{{WRAPPER}} .image-card .readmore a.button-readmore:hover' => 'background-color: {{VALUE}}',
+                            ],
+                        ]
+                    );
+                    // Text Color
+                    $this->add_control(
+                        'but_button_hover_text_color',
+                        [
+                            'label' => __( 'Text Color', 'elementor' ),
+                            'type' => \Elementor\Controls_Manager::COLOR,
+                            'default' => '#fff',
+                            'selectors' => [
+                                '{{WRAPPER}} .image-card .readmore a.button-readmore:hover' => 'color: {{VALUE}}',
+                            ],
+                        ]
+                    );
+                $this->end_controls_tab();
 
-        // Typography
-        $this->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
-            [
-                'name' => 'button_typography',
-                'label' => __( 'Typography', 'elementor' ),
-                'selector' => '{{WRAPPER}} .image-card .image .top-price-badge',
-            ]
-        );
+            $this->end_controls_tabs();
 
-        $this->end_controls_tab();
+            // Typography
+            $this->add_group_control(
+                \Elementor\Group_Control_Typography::get_type(),
+                [
+                    'name' => 'buy_button_typography',
+                    'label' => __( 'Typography', 'elementor' ),
+                    'selector' => '{{WRAPPER}} .image-card .readmore a.button-readmore',
+                ]
+            );
 
+        $this->end_controls_section();
 
-        // Hover State
-        $this->start_controls_tab(
-            'buy_button_hover_state',
-            [
-                'label' => __( 'Hover', 'elementor' ),
-            ]
-        );
-        // Background Color
-        $this->add_control(
-            'but_button_hover_bg_color',
-            [
-                'label' => __( 'Background Color', 'elementor' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#707070',
-                'selectors' => [
-                    '{{WRAPPER}} .image-card .readmore a.button-readmore:hover' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
-        // Text Color
-        $this->add_control(
-            'but_button_hover_text_color',
-            [
-                'label' => __( 'Text Color', 'elementor' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#fff',
-                'selectors' => [
-                    '{{WRAPPER}} .image-card .readmore a.button-readmore:hover' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->end_controls_tab();
+        
 
 
     }
