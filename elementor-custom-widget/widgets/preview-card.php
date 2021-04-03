@@ -678,6 +678,105 @@ class preview_Card_widget extends Widget_Base
         $this->end_controls_section();
 
 
+        /**
+         * Middle badge Style Settings
+         */
+        $this->start_controls_section(
+            'middle_badge_style_section',
+            [
+                'label' => __( 'Middle Badge', 'elementor' ),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        // Background Color
+        $this->add_control(
+            'middle_badge_backgorund_color',
+            [
+                'label' => __( 'Background Color', 'elementor' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#562dd4',
+                'selectors' => [
+                    '{{WRAPPER}} .image-card .image .middle-price-badge' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        // Text Color
+        $this->add_control(
+            'middle_badge_text_color',
+            [
+                'label' => __( 'Text Color', 'elementor' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .image-card .image .middle-price-badge' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        // Typography
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'middle_badge_typography',
+                'label' => __( 'Typography', 'elementor' ),
+                'selector' => '{{WRAPPER}} .image-card .image .middle-price-badge',
+            ]
+        );
+
+        $this->end_controls_section();
+
+
+        /**
+         * Bottom badge Style Settings
+         */
+        $this->start_controls_section(
+            'bottom_badge_style_section',
+            [
+                'label' => __( 'Bottom Badge', 'elementor' ),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        // Background Color
+        $this->add_control(
+            'bottom_badge_backgorund_color',
+            [
+                'label' => __( 'Background Color', 'elementor' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#562dd4',
+                'selectors' => [
+                    '{{WRAPPER}} .image-card .content .readmore .bottom-price-badge' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        // Text Color
+        $this->add_control(
+            'bottom_badge_text_color',
+            [
+                'label' => __( 'Text Color', 'elementor' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#fff',
+                'selectors' => [
+                    '{{WRAPPER}} .image-card .content .readmore .bottom-price-badge' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        // Typography
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'bottom_badge_typography',
+                'label' => __( 'Typography', 'elementor' ),
+                'selector' => '{{WRAPPER}} .image-card .content .readmore .bottom-price-badge',
+            ]
+        );
+
+        $this->end_controls_section();
+
 
          /**
          * Buy Button Style Settings
@@ -824,13 +923,13 @@ class preview_Card_widget extends Widget_Base
                 </div>
 
                 <div class="readmore">
-                <a href="<?php echo esc_url($settings['button_link']['url']); ?>" <?php echo $button_target; ?> <?php echo $button_nofollow; ?> class="button button-readmore"><?php echo $settings['button_text']; ?></a>
+                    <a href="<?php echo esc_url($settings['button_link']['url']); ?>" <?php echo $button_target; ?> <?php echo $button_nofollow; ?> class="button button-readmore"><?php echo $settings['button_text']; ?></a>
 
-                    <?php if ('yes' == $settings['show_bottom_badge']): ?>
-                        <span class="bottom-price-badge badge-blue">$<?php echo $settings['bottom_badge_text']; ?></span>
-                    <?php endif;?>
+                        <?php if ('yes' == $settings['show_bottom_badge']): ?>
+                            <span class="bottom-price-badge badge-blue">$<?php echo $settings['bottom_badge_text']; ?></span>
+                        <?php endif;?>
 
-                </div>
+                    </div>
             </div>
         </div>
 

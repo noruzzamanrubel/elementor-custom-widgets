@@ -123,3 +123,11 @@
     background-color: #707070;
     color: #fff;
 }
+
+.title {
+    color: red;
+}
+
+.title:hover {
+    color: green;
+}

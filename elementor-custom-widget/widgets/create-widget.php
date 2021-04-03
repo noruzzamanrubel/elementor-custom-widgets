@@ -64,6 +64,7 @@ class Test_Title_widget extends Widget_Base
             ]
         );
 
+
         $this->add_responsive_control(
             'align',
             [
@@ -94,26 +95,6 @@ class Test_Title_widget extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'header_size',
-            [
-                'label' => __('HTML Tag', 'elementor'),
-                'type' => Controls_Manager::SELECT,
-                'options' => [
-                    'h1' => 'H1',
-                    'h2' => 'H2',
-                    'h3' => 'H3',
-                    'h4' => 'H4',
-                    'h5' => 'H5',
-                    'h6' => 'H6',
-                    'div' => 'div',
-                    'span' => 'span',
-                    'p' => 'p',
-                ],
-                'default' => 'h2',
-            ]
-        );
-
         $this->end_controls_section();
 
         //Add Style Control
@@ -126,20 +107,65 @@ class Test_Title_widget extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'title_color',
-            [
-                'label' => __('Title Color', 'elementor'),
-                'type' => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type' => Scheme_Color::get_type(),
-                    'value' => Scheme_Color::COLOR_1,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .title' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
+
+        $this->start_controls_tabs(
+			'style_tabs'
+		);
+
+            $this->start_controls_tab(
+                'style_normal_tab',
+                [
+                    'label' => __( 'Normal', 'plugin-name' ),
+                ]
+            );
+
+            $this->add_control(
+                'title_normal_color',
+                [
+                    'label' => __( 'Title Normal Color', 'plugin-domain' ),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'scheme' => [
+                        'type' => \Elementor\Scheme_Color::get_type(),
+                        'value' => \Elementor\Scheme_Color::COLOR_1,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .title' => 'color: {{VALUE}}',
+                    ],
+                ]
+            );
+
+            $this->end_controls_tab();
+
+            $this->start_controls_tab(
+                'style_hover_tab',
+                [
+                    'label' => __( 'Hover', 'plugin-name' ),
+                ]
+            );
+            $this->add_control(
+                'title_hover_color',
+                [
+                    'label' => __( 'Title Hover Color', 'plugin-domain' ),
+                    'type' => \Elementor\Controls_Manager::COLOR,
+                    'scheme' => [
+                        'type' => \Elementor\Scheme_Color::get_type(),
+                        'value' => \Elementor\Scheme_Color::COLOR_1,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .title:hover' => 'color: {{VALUE}}',
+                    ],
+                ]
+            );
+
+
+
+            $this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+
+
+
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
@@ -167,6 +193,7 @@ class Test_Title_widget extends Widget_Base
         // echo '<div style="text-align: ' . $settings['text_align'] . '"> </div>';
 
         // echo '<h1 class="title"><a href="' . $settings['title_link']['url'] . '" ' . $target . $nofollow . '>'.$settings['title'].'</a></h1>';
+
 
     }
 
